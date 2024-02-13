@@ -81,4 +81,3 @@ def get_group_schedule(group_id: int) -> tuple:
 
 # для использования скрипта, необходимо вызвать функцию get_group_schedule(group_id), в качестве аргумента - номер группы
 # например - get_group_schedule(9)
-print(get_group_schedule(9))
