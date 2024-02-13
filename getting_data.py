@@ -25,7 +25,7 @@ def table_single(soup: bs4.element.Tag):
 def table_subgroups(soup: bs4.element.Tag):
     result = {}
 
-# из за особенностей сайта, пришлось делать костыли
+    # из за особенностей сайта, пришлось делать костыли
     lessons_count = len(soup.find_all(class_='table-subject'))
     subgroups_count = len(soup.find_all(class_='table-sg-name'))
     for i in range(1, subgroups_count + 1):
@@ -65,7 +65,7 @@ def get_group_schedule(group_id: int) -> tuple:
             today_schedule = row.find_all('td')
             break
 
-# проверка типа занятия и получение результата
+    # проверка типа занятия и получение результата
     for i in today_schedule:
         if i.get('class')[0] == 'table-empty':
             result.append(table_empty())
@@ -79,6 +79,6 @@ def get_group_schedule(group_id: int) -> tuple:
     return tuple(result)
 
 
-# для использования скрипта, необходимо вызвать функцию get_group_schedule(), в качестве аргумента - номер группы
+# для использования скрипта, необходимо вызвать функцию get_group_schedule(group_id), в качестве аргумента - номер группы
 # например - get_group_schedule(9)
 print(get_group_schedule(9))
